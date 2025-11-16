@@ -1,6 +1,6 @@
 ## **GPT-2 Fine-Tuning for Short Story Generation**
 
-This repository contains the implementation for Project 8 of the Deep Learning and Neural Computation course, focusing on fine-tuning a pre-trained GPT-2 model for the task of short story generation. The project compares the performance of the base model versus the fine-tuned version using quantitative metrics: **Diversity**, **Fluency**, and **Coherence**.
+This repository contains fine-tuning a pre-trained GPT-2 model for the task of short story generation. The project compares the performance of the base model versus the fine-tuned version using quantitative metrics: **Diversity**, **Fluency**, and **Coherence**.
 
 The core implementation is in the `story_generation.ipynb` notebook.
 
@@ -89,3 +89,10 @@ The `Trainer` API was configured with `load_best_model_at_end=True` and `save_to
 
 *   **Mechanism:** During training, the validation loss is monitored at regular steps. The model checkpoint associated with the *lowest* validation loss is saved.
 *   **Impact on Performance:** By ensuring the best model (the one with the lowest validation loss) is loaded at the end of training, we mitigate the risk of **overfitting** to the specific training data. In the provided training run, the validation loss drops from the start but starts to plateau around step 2100. Loading the best model prevents the final, potentially overfit, state of the model from being used, guaranteeing the saved model offers the best generalization performance to unseen data (like the texts generated in Q2). This improves the robustness and generalization of the fine-tuned GPT-2.
+
+
+## Acknowledgments
+-   **Course**: Deep Learning And Neural Computation
+-   **University**: Amirkabir University of Technology
+-   **Instructor**: Dr. Safabakhsh
+-   **Teaching Assistant**: Ahmad Asadi
