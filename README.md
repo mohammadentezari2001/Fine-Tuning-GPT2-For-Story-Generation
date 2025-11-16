@@ -4,22 +4,14 @@ This repository contains the implementation for Project 8 of the Deep Learning a
 
 The core implementation is in the `story_generation.ipynb` notebook.
 
-## 1. Project Goals
-
-The main objective of this exercise is to:
-1.  **Fine-tune** a GPT-2 model (using the `gpt2` checkpoint) on a dataset of short stories.
-2.  **Evaluate** the fine-tuned model's performance on text generation.
-3.  **Compare** the output quality (in terms of diversity, fluency, and coherence) of the fine-tuned model against the base GPT-2 model.
-4.  Investigate the impact of **early stopping** mechanisms.
-
-## 2. Dataset
+## 1. Dataset
 
 The project utilizes the **TinyStories** dataset, which consists of synthetic, simple stories suitable for training small language models to generate coherent narratives.
 
 *   **Dataset Source:** `roneneldan/TinyStories` from the Hugging Face Datasets library.
 *   **Preprocessing:** To reduce training time for demonstration purposes, a small fraction (approximately **2%**) of the original dataset was sampled for both the training and validation splits.
 
-## 3. Model and Fine-Tuning
+## 2. Model and Fine-Tuning
 
 *   **Base Model:** `gpt2` (GPT-2 small)
 *   **Library:** Hugging Face `transformers` and `datasets`.
@@ -30,7 +22,7 @@ The project utilizes the **TinyStories** dataset, which consists of synthetic, s
     *   `per_device_train_batch_size`: 4
     *   `load_best_model_at_end`: `True` (used for early stopping implementation)
 
-## 4. Installation and Setup
+## 3. Installation and Setup
 
 To run the notebook locally, you need Python and the following libraries:
 
@@ -38,7 +30,7 @@ To run the notebook locally, you need Python and the following libraries:
 pip install transformers datasets torch accelerate sentence-transformers
 ```
 
-## 5. Evaluation Metrics
+## 4. Evaluation Metrics
 
 The performance of the generated text is quantitatively evaluated using three key metrics:
 
@@ -48,7 +40,7 @@ The performance of the generated text is quantitatively evaluated using three ke
 | **Diversity** | **Type-Token Ratio (TTR)** & **Entropy** | TTR measures lexical variation (unique words / total words). Entropy measures the randomness and variety of word distribution. Higher values suggest more diverse vocabulary. |
 | **Coherence** | **Inter-Sentence Cosine Similarity** | Uses a Sentence Transformer (`all-MiniLM-L6-v2`) to embed adjacent sentences. The average cosine similarity between these embeddings serves as a proxy for how semantically connected the sentences are. Higher values indicate better coherence. |
 
-## 6. Results and Analysis (Answering Assignment Questions)
+## 5. Results and Analysis
 
 ### **Q1: Comparison of Generated Text Quality (Base vs. Fine-Tuned)**
 
